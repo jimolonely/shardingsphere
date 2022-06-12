@@ -29,6 +29,10 @@
     
     <dependencies>
         <dependency>
+            <groupId>org.urbcomp</groupId>
+            <artifactId>start-db-jdbc-driver</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.apache.shardingsphere</groupId>
             <artifactId>shardingsphere-db-protocol-core</artifactId>
             <version>${project.version}</version>
@@ -74,9 +78,20 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.urbcomp</groupId>
+            <artifactId>start-db-avatica-core</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.shardingsphere</groupId>
             <artifactId>shardingsphere-proxy-backend</artifactId>
             <version>${project.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>avatica-core</artifactId>
+                    <groupId>org.apache.calcite.avatica</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.apache.shardingsphere</groupId>
@@ -119,6 +134,7 @@
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
+
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
